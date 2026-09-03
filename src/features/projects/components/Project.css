@@ -1,0 +1,66 @@
+.project {
+  min-height:
+    calc(var(--lvh) * 100);
+
+  background-color:
+    transparent;
+
+  max-width:
+    calc(var(--lvw) * 100);
+
+  overflow: hidden;
+}
+
+.project-visible {
+  background-color:
+    var(--color-background-300);
+}
+
+.project-content-wrapper {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content:
+    space-around;
+
+  width: 100%;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.4s ease-out;
+}
+
+.project-content-wrapper-visible {
+  opacity: 1;
+}
+
+.project-footer {
+  position: relative;
+
+  margin-top: auto;
+
+  color:
+    var(--color-text-400);
+}
+
+.project ::selection {
+  background:
+    var(--color-accent-400);
+
+  color:
+    var(--color-accent-text-400);
+
+  text-shadow: none;
+}
+
+.project ::-moz-selection {
+  background:
+    var(--color-accent-400);
+
+  color:
+    var(--color-accent-text-400);
+
+  text-shadow: none;
+}

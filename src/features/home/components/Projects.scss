@@ -1,0 +1,102 @@
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  gap: var(--space-xl);
+  padding-left: var(--space-outer);
+  padding-right: var(--space-outer);
+  background-color: var(--color-beige-400);
+  min-height: calc(var(--lvh) * 100 + var(--radius-xxl));
+  padding-top: 96px;
+  padding-bottom: 96px;
+
+  @media (min-width: 840px) {
+    padding-top: 144px;
+    padding-bottom: 144px;
+    gap: var(--space-xxl);
+  }
+
+  @media (min-width: 1024px) {
+    gap: var(--space-xxxl);
+  }
+
+  &-title {
+    position: relative;
+    padding-top: var(--space-md);
+    grid-column: 1 / 13;
+
+    @media (min-width: 840px) {
+      grid-column: 1 / 10;
+    }
+
+    @media (min-width: 1024px) {
+      grid-column: 3 / 8;
+    }
+
+    &-copy {
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      font-size: var(--font-size-title-md);
+
+      @media (min-width: 480px) {
+        font-size: var(--font-size-title-lg);
+      }
+
+      @media (min-width: 1280px) {
+        font-size: var(--font-size-title-xl);
+      }
+    }
+
+    &-banner {
+      position: absolute;
+      top: 0;
+      left: -8px;
+      transform: translate(0, -20%) rotate(-4deg);
+
+      @media (min-width: 1024px) {
+        left: -16px;
+        transform: translate(0, -20%) rotate(-6deg);
+      }
+    }
+  }
+
+  &-notch {
+    &-start {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(-100%);
+      color: var(--color-beige-400);
+      --icon-color: var(--color-beige-400);
+    }
+
+    &-end {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: var(--color-beige-600);
+      --icon-color: var(--color-beige-600);
+    }
+  }
+
+  &-cards {
+    max-width: 100%;
+    flex: 1;
+    grid-column: 1 / span 12;
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-column: 3 / span 8;
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    }
+  }
+}

@@ -1,0 +1,181 @@
+.project-hero {
+  padding:
+    0 var(--space-outer);
+
+  padding-bottom: 48px;
+
+  padding-top:
+    calc(
+      var(--height-header) + 24px
+    );
+
+  @media (min-width: 840px) {
+    padding-bottom: 64px;
+  }
+
+  &-button {
+    flex: 0.5;
+
+    @media (min-width: 840px) {
+      width: fit-content;
+    }
+  }
+
+  &-buttons {
+    grid-row: 3;
+
+    grid-column: 1 / 13;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: var(--space-sm);
+
+    margin-top: var(--space-md);
+
+    width: 100%;
+
+    @media (min-width: 840px) {
+      gap: var(--space-md);
+
+      width: fit-content;
+
+      grid-column: 1 / 6;
+
+      grid-row: 2;
+
+      margin-top: 0;
+    }
+
+    @media (min-width: 1024px) {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &-video {
+    grid-column:
+      1 / span 12;
+
+    align-self: center;
+
+    @media (min-width: 840px) {
+      grid-column:
+        1 / 8;
+    }
+
+    @media (min-width: 1024px) {
+      grid-column:
+        2 / 8;
+    }
+  }
+
+  &-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: var(--space-sm);
+  }
+
+  &-title {
+    font-size:
+      var(--font-size-title-lg);
+
+    color:
+      var(--color-text-400);
+
+    line-height:
+      var(--line-height-title);
+
+    transform:
+      translateY(0%);
+
+    animation:
+      project-hero-title-visible
+      0.5s
+      var(--ease-smooth);
+
+    @media (min-width: 840px) {
+      font-size:
+        var(--font-size-title-xl);
+    }
+  }
+
+  &-title-wrapper {
+    overflow: hidden;
+  }
+
+  &-description {
+    color:
+      var(--color-text-400);
+
+    line-height:
+      var(--line-height-copy);
+
+    grid-column:
+      1 / 13;
+
+    align-self: center;
+
+    @media (min-width: 840px) {
+      grid-row: 1;
+
+      grid-column:
+        6 / 12;
+    }
+
+    @media (min-width: 1024px) {
+      grid-row: 1;
+
+      grid-column:
+        7 / 12;
+    }
+
+    @media (min-width: 1280px) {
+      grid-row: 1;
+
+      grid-column:
+        7 / 11;
+    }
+  }
+
+  &-top {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-sm);
+
+    grid-row: 1;
+
+    align-self: start;
+
+    grid-column:
+      1 / 13;
+
+    @media (min-width: 840px) {
+      grid-column:
+        1 / 6;
+    }
+
+    @media (min-width: 1024px) {
+      grid-column:
+        2 / 6;
+    }
+  }
+}
+
+@keyframes project-hero-title-visible {
+  from {
+    transform:
+      translateY(100%);
+  }
+
+  to {
+    transform:
+      translateY(0);
+  }
+}

@@ -1,0 +1,60 @@
+.react-home-wrapper {
+  width: 100%;
+
+  position: relative;
+
+  z-index:
+    var(--z-index-layout);
+}
+
+.react-home-wrapper-hidden {
+  visibility: hidden;
+
+  pointer-events: none;
+
+  position: fixed;
+
+  inset: 0;
+}
+
+
+.react-home-wrapper-transitioning {
+  visibility: visible;
+
+  pointer-events: none;
+}
+
+.react-project-wrapper {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  z-index:
+    var(--z-index-layout-project);
+
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+
+.react-project-wrapper-visible {
+  visibility: visible;
+
+  pointer-events: auto;
+
+  position: static;
+
+  min-height: 100%;
+}
+
+
+.react-project-wrapper-transitioning {
+  visibility: visible;
+}

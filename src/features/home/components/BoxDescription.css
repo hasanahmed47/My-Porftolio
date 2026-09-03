@@ -1,0 +1,315 @@
+.box-description {
+  --line-length:
+    min(
+      48px,
+      calc(var(--svw) * 5)
+    );
+
+  gap:
+    var(--space-xxs);
+
+  position: absolute;
+
+  bottom:
+    var(--count-height);
+
+  width:
+    calc(
+      100% -
+      var(--space-outer) * 2
+    );
+
+  left:
+    var(--space-outer);
+}
+
+
+/* ==========================================
+   MAIN BOX
+========================================== */
+
+.box-description-content {
+  border:
+    var(--stroke-sm)
+    solid
+    var(--color-cyan-400);
+
+  border-radius:
+    var(--radius-md);
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--color-hologram-top) 0%,
+      var(--color-hologram-bottom) 100%
+    );
+
+  width: 100%;
+
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   MOBILE DETAILS
+========================================== */
+
+.box-description-details {
+  padding:
+    var(--space-sm)
+    var(--space-md);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.box-description-details-name {
+  margin: 0;
+
+  font-size:
+    var(--font-size-title-xs);
+
+  font-weight: 700;
+}
+
+.box-description-details-location {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-xs);
+}
+
+.box-description-details-location-icon {
+  width:
+    var(--icon-size-xs);
+
+  --icon-color:
+    var(--color-white-400);
+
+  transform:
+    translateY(-1px);
+}
+
+.box-description-details-location-copy {
+  margin: 0;
+
+  font-size:
+    var(--font-size-md);
+}
+
+
+/* ==========================================
+   DIVIDER
+========================================== */
+
+.box-description-line {
+  width: 100%;
+
+  height: 1px;
+
+  background:
+    var(--color-cyan-400);
+}
+
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
+
+.box-description-copy {
+  width: 100%;
+
+  padding:
+    var(--space-sm)
+    var(--space-md);
+
+  font-size:
+    var(--font-size-md);
+
+  line-height:
+    1.45;
+
+  overflow: hidden;
+}
+
+
+/*
+ * IMPORTANT:
+ * The React AppearingText uses absolute
+ * positioning. Give this instance a real
+ * width so long copy wraps correctly.
+ */
+
+.box-description-copy .appearing-text {
+  display: block;
+
+  position: relative;
+
+  width: 100%;
+}
+
+.box-description-copy
+.appearing-text-value {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+
+  white-space: normal;
+
+  overflow-wrap:
+    anywhere;
+
+  line-height: 1.45;
+}
+
+.box-description-copy
+.appearing-text-clone {
+  display: block;
+
+  width: 100%;
+
+  white-space: normal;
+
+  overflow-wrap:
+    anywhere;
+
+  line-height: 1.45;
+}
+
+
+/* ==========================================
+   LANDSCAPE
+========================================== */
+
+@media (orientation: landscape) {
+  .box-description {
+    position: relative;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 480px;
+
+    max-width:
+      calc(var(--svw) * 38);
+
+    transform:
+      translate(
+        -100%,
+        -50%
+      );
+
+    padding-top: 3px;
+
+    padding-right:
+      var(--line-length);
+  }
+
+
+  .box-description-details,
+  .box-description-line {
+    display: none;
+  }
+
+
+  .box-description-content {
+    padding:
+      var(--space-xs)
+      var(--space-sm);
+  }
+
+
+  .box-description-copy {
+    padding: 0;
+
+    font-size:
+      var(--font-size-sm);
+  }
+
+
+  .box-description::after,
+  .box-description::before {
+    display: block;
+
+    content: "";
+  }
+
+
+  .box-description::after {
+    position: absolute;
+
+    top: 50%;
+    right: 0;
+
+    transform:
+      translateY(-50%);
+
+    width: 11px;
+    height: 11px;
+
+    background:
+      var(--color-cyan-400);
+
+    border-radius: 50%;
+  }
+
+
+  .box-description::before {
+    position: absolute;
+
+    top: 50%;
+    right: 0;
+
+    transform:
+      translateY(-50%);
+
+    width:
+      var(--line-length);
+
+    height: 0;
+
+    border-top:
+      var(--stroke-sm)
+      solid
+      var(--color-cyan-400);
+  }
+}
+
+
+/* ==========================================
+   LANDSCAPE + MD
+========================================== */
+
+@media (orientation: landscape) and
+  (min-width: 840px) {
+  .box-description-content {
+    padding:
+      var(--space-sm)
+      var(--space-md);
+  }
+}
+
+@media (orientation: landscape) and
+  (min-height: 480px) {
+  .box-description {
+    width: 410px;
+
+    max-width:
+      calc(var(--svw) * 32);
+  }
+
+
+  .box-description-copy {
+    font-size:
+      var(--font-size-lg);
+  }
+}

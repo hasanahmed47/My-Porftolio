@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Hasan Ahmed | Web Developer</title>
+
+    <meta
+      name="description"
+      content="Web developer creating interactive 3D web experiences and real-time apps with WebGL, javaScript, and Node.js for high-performance, engaging websites."
+    />
+
+    <meta name="robots" content="index, follow" />
+
+    <link
+      rel="canonical"
+      href="https://hasanahmed.dev/"
+    />
+
+    <meta
+      property="og:title"
+      content="Hasan Ahmed | Web Developer"
+    />
+
+    <meta
+      property="og:description"
+      content="Web developer creating interactive 3D web experiences and real-time apps with WebGL, TypeScript, and Node.js for high-performance, engaging websites."
+    />
+
+    <meta
+      property="og:type"
+      content="website"
+    />
+
+    <meta
+      property="og:url"
+      content="https://hasanahmed.dev/"
+    />
+
+    <meta
+      property="og:image"
+      content="/meta/og-image.webp"
+    />
+
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+
+    <meta
+      name="twitter:title"
+      content="Hasan Ahmed | Web Developer (WebGL & Node.js)"
+    />
+
+    <meta
+      name="twitter:description"
+      content="Web developer creating interactive 3D web experiences and real-time apps with WebGL, javaScript, and Node.js for high-performance, engaging websites."
+    />
+
+    <meta
+      name="twitter:image"
+      content="/meta/twitter-image.webp"
+    />
+
+    <!-- Fonts -->
+    <link
+      rel="preload"
+      href="/fonts/urbanist-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="preload"
+      href="/fonts/urbanist-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="preload"
+      href="/fonts/urbanist-900.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="preload"
+      href="/fonts/pro-font-windows-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="preload"
+      href="/fonts/pro-font-windows-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/meta/favicon-96x96.png"
+      sizes="96x96"
+    />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/meta/favicon.svg"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="/meta/favicon.ico"
+    />
+
+    <meta
+      name="theme-color"
+      content="#dfd1bc"
+    />
+
+    <style>
+   
+
+      html {
+        background: #f5efe6;
+        overflow-y: scroll;
+      }
+
+      body {
+        background: #f5efe6;
+      }
+
+      .is-loading {
+        overscroll-behavior: none;
+        position: fixed;
+        width: 100svw;
+        height: 100svh;
+      }
+
+
+      .preloader {
+        position: fixed;
+        z-index: 100;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background: #f5efe6;
+
+        color: #2d2a24;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+
+        opacity: 1;
+
+        transition:
+          opacity 0.3s ease-in-out;
+      }
+
+
+      /* =====================================================
+         BACKGROUND GRID
+      ===================================================== */
+
+      .preloader-grid {
+        position: absolute;
+
+        inset: 0;
+
+        display: grid;
+
+        grid-template-columns:
+          repeat(6, 1fr);
+
+        pointer-events: none;
+
+        opacity: 0.22;
+      }
+
+      .preloader-grid span {
+        border-right:
+          1px solid
+          rgba(45, 42, 36, 0.08);
+      }
+
+
+      /* =====================================================
+         TOP INFORMATION
+      ===================================================== */
+
+      .preloader-top {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+
+        padding:
+          28px
+          clamp(24px, 4vw, 60px);
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        box-sizing: border-box;
+
+        font-family:
+          Arial,
+          sans-serif;
+
+        font-size: 10px;
+
+        font-weight: 700;
+
+        letter-spacing: 0.16em;
+
+        text-transform: uppercase;
+      }
+
+      .preloader-brand {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+      }
+
+      .preloader-dot {
+        width: 6px;
+        height: 6px;
+
+        border-radius: 50%;
+
+        background: #2d2a24;
+
+        animation:
+          preloaderPulse
+          1.4s
+          ease-in-out
+          infinite;
+      }
+
+      .preloader-year {
+        opacity: 0.45;
+      }
+
+
+      /* =====================================================
+         CENTER STAGE
+      ===================================================== */
+
+      .preloader-center {
+        position: relative;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+      }
+
+
+      /* =====================================================
+         ORBIT RINGS
+      ===================================================== */
+
+      .preloader-orbit {
+        position: absolute;
+
+        width: 190px;
+        height: 190px;
+
+        border:
+          1px solid
+          rgba(45, 42, 36, 0.10);
+
+        border-radius: 50%;
+
+        animation:
+          preloaderOrbit
+          12s
+          linear
+          infinite;
+      }
+
+      .preloader-orbit::after {
+        content: "";
+
+        position: absolute;
+
+        top: 15px;
+        left: 50%;
+
+        width: 5px;
+        height: 5px;
+
+        border-radius: 50%;
+
+        background: #2d2a24;
+
+        transform:
+          translateX(-50%);
+
+        opacity: 0.45;
+      }
+
+      .preloader-orbit-two {
+        width: 270px;
+        height: 270px;
+
+        opacity: 0.45;
+
+        animation:
+          preloaderOrbit
+          18s
+          linear
+          infinite reverse;
+      }
+
+
+      /* =====================================================
+         LOGO
+      ===================================================== */
+
+      .preloader-svg {
+        position: relative;
+
+        z-index: 2;
+
+        width:
+          clamp(
+            90px,
+            9vw,
+            120px
+          );
+
+        height:
+          clamp(
+            90px,
+            9vw,
+            120px
+          );
+
+        transition:
+          transform
+          0.3s
+          cubic-bezier(
+            0.165,
+            0.84,
+            0.44,
+            1
+          ),
+
+          opacity
+          0.3s
+          cubic-bezier(
+            0.165,
+            0.84,
+            0.44,
+            1
+          );
+      }
+
+
+      /* =====================================================
+         GHOST H
+      ===================================================== */
+
+      .preloader-ghost {
+        fill: #2d2a24;
+      }
+
+
+      /* =====================================================
+         ANIMATED H FILL
+      ===================================================== */
+
+      .preloader-fill {
+        fill: #2d2a24;
+
+        clip-path:
+          inset(
+            0 0 100% 0
+          );
+
+        animation:
+          preloaderFillUp
+          1.2s
+          cubic-bezier(
+            0.165,
+            0.84,
+            0.44,
+            1
+          )
+          forwards;
+      }
+
+      @keyframes preloaderFillUp {
+        to {
+          clip-path:
+            inset(
+              0 0 0% 0
+            );
+        }
+      }
+
+
+      /* =====================================================
+         H UNDERLINE
+      ===================================================== */
+
+      .preloader-line {
+        position: absolute;
+
+        top: calc(50% + 82px);
+
+        width: 0;
+
+        height: 1px;
+
+        background: #2d2a24;
+
+        opacity: 0.45;
+
+        animation:
+          preloaderLine
+          0.9s
+          0.35s
+          cubic-bezier(
+            0.165,
+            0.84,
+            0.44,
+            1
+          )
+          forwards;
+      }
+
+      @keyframes preloaderLine {
+        to {
+          width: 72px;
+        }
+      }
+
+
+      /* =====================================================
+         CENTER LABEL
+      ===================================================== */
+
+      .preloader-label {
+        position: absolute;
+
+        top: calc(50% + 100px);
+
+        width: max-content;
+
+        font-family:
+          Arial,
+          sans-serif;
+
+        font-size: 8px;
+
+        font-weight: 700;
+
+        letter-spacing: 0.2em;
+
+        text-transform: uppercase;
+
+        opacity: 0;
+
+        animation:
+          preloaderLabel
+          0.6s
+          0.65s
+          ease
+          forwards;
+      }
+
+      @keyframes preloaderLabel {
+        from {
+          opacity: 0;
+
+          transform:
+            translateY(6px);
+        }
+
+        to {
+          opacity: 0.42;
+
+          transform:
+            translateY(0);
+        }
+      }
+
+
+      /* =====================================================
+         BOTTOM INFORMATION
+      ===================================================== */
+
+      .preloader-bottom {
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+
+        padding:
+          28px
+          clamp(24px, 4vw, 60px);
+
+        box-sizing: border-box;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: flex-end;
+
+        font-family:
+          Arial,
+          sans-serif;
+
+        font-size: 9px;
+
+        font-weight: 700;
+
+        letter-spacing: 0.14em;
+
+        text-transform: uppercase;
+      }
+
+      .preloader-bottom-left {
+        opacity: 0.42;
+      }
+
+      .preloader-bottom-right {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        opacity: 0.42;
+      }
+
+      .preloader-arrow {
+        display: inline-block;
+
+        animation:
+          preloaderArrow
+          1.2s
+          ease-in-out
+          infinite;
+      }
+
+      @keyframes preloaderArrow {
+        0%,
+        100% {
+          transform:
+            translateX(0);
+        }
+
+        50% {
+          transform:
+            translateX(5px);
+        }
+      }
+
+
+      /* =====================================================
+         CORNER MARKS
+      ===================================================== */
+
+      .preloader-corner {
+        position: absolute;
+
+        width: 22px;
+        height: 22px;
+
+        opacity: 0.18;
+      }
+
+      .preloader-corner::before,
+      .preloader-corner::after {
+        content: "";
+
+        position: absolute;
+
+        background: #2d2a24;
+      }
+
+      .preloader-corner::before {
+        width: 100%;
+        height: 1px;
+
+        top: 0;
+        left: 0;
+      }
+
+      .preloader-corner::after {
+        width: 1px;
+        height: 100%;
+
+        top: 0;
+        left: 0;
+      }
+
+      .preloader-corner-tl {
+        top: 25px;
+        left: 25px;
+      }
+
+      .preloader-corner-tr {
+        top: 25px;
+        right: 25px;
+
+        transform: rotate(90deg);
+      }
+
+      .preloader-corner-bl {
+        bottom: 25px;
+        left: 25px;
+
+        transform: rotate(-90deg);
+      }
+
+      .preloader-corner-br {
+        bottom: 25px;
+        right: 25px;
+
+        transform: rotate(180deg);
+      }
+
+
+      /* =====================================================
+         HOVER / MOTION
+      ===================================================== */
+
+      .preloader-center {
+        animation:
+          preloaderCenterIn
+          0.8s
+          cubic-bezier(
+            0.165,
+            0.84,
+            0.44,
+            1
+          );
+      }
+
+      @keyframes preloaderCenterIn {
+        from {
+          opacity: 0;
+
+          transform:
+            scale(0.92);
+        }
+
+        to {
+          opacity: 1;
+
+          transform:
+            scale(1);
+        }
+      }
+
+
+      /* =====================================================
+         STATUS PULSE
+      ===================================================== */
+
+      @keyframes preloaderPulse {
+        0%,
+        100% {
+          transform:
+            scale(0.7);
+
+          opacity: 0.35;
+        }
+
+        50% {
+          transform:
+            scale(1.15);
+
+          opacity: 1;
+        }
+      }
+
+
+      /* =====================================================
+         ORBIT
+      ===================================================== */
+
+      @keyframes preloaderOrbit {
+        from {
+          transform:
+            rotate(0deg);
+        }
+
+        to {
+          transform:
+            rotate(360deg);
+        }
+      }
+
+
+      /* =====================================================
+         HIDDEN STATE
+         IMPORTANT:
+         Existing JS still controls this.
+      ===================================================== */
+
+      .preloader-hidden {
+        opacity: 0 !important;
+
+        pointer-events: none !important;
+      }
+
+      .preloader-hidden * {
+        pointer-events: none !important;
+      }
+
+      .preloader-hidden .preloader-svg {
+        transform:
+          scale(0.8);
+
+        opacity: 0;
+      }
+
+      .preloader-hidden .preloader-center {
+        transform:
+          scale(0.92)
+          translateY(-10px);
+
+        opacity: 0;
+      }
+
+
+      /* =====================================================
+         MOBILE
+      ===================================================== */
+
+      @media (max-width: 600px) {
+
+        .preloader-grid {
+          grid-template-columns:
+            repeat(3, 1fr);
+        }
+
+        .preloader-top {
+          padding:
+            22px 20px;
+        }
+
+        .preloader-bottom {
+          padding:
+            22px 20px;
+        }
+
+        .preloader-year {
+          display: none;
+        }
+
+        .preloader-orbit {
+          width: 150px;
+          height: 150px;
+        }
+
+        .preloader-orbit-two {
+          width: 220px;
+          height: 220px;
+        }
+
+        .preloader-line {
+          top: calc(50% + 68px);
+        }
+
+        .preloader-label {
+          top: calc(50% + 84px);
+
+          font-size: 7px;
+        }
+
+        .preloader-bottom {
+          font-size: 7px;
+        }
+
+        .preloader-bottom-left {
+          max-width: 130px;
+
+          line-height: 1.5;
+        }
+
+        .preloader-bottom-right {
+          gap: 6px;
+        }
+
+        .preloader-corner {
+          width: 16px;
+          height: 16px;
+        }
+
+        .preloader-corner-tl {
+          top: 18px;
+          left: 18px;
+        }
+
+        .preloader-corner-tr {
+          top: 18px;
+          right: 18px;
+        }
+
+        .preloader-corner-bl {
+          bottom: 18px;
+          left: 18px;
+        }
+
+        .preloader-corner-br {
+          bottom: 18px;
+          right: 18px;
+        }
+      }
+
+      /* Reduced motion accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        .preloader-fill,
+        .preloader-orbit,
+        .preloader-center,
+        .preloader-line,
+        .preloader-label,
+        .preloader-dot,
+        .preloader-arrow {
+          animation: none !important;
+        }
+
+        .preloader-fill {
+          clip-path:
+            inset(0);
+        }
+
+        .preloader-line {
+          width: 72px;
+        }
+
+        .preloader-label {
+          opacity: 0.42;
+        }
+      }
+    </style>
+  </head>
+
+
+  <body class="is-loading">
+
+    <svg
+      style="display: none"
+      viewBox="0 0 56 61"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <path
+          id="logo-path"
+          d="M6 4H20V57H6V4ZM36 4H50V57H36V4ZM6 24H50V37H6V24Z"
+        ></path>
+      </defs>
+    </svg>
+
+    <div id="app"></div>
+
+    <div class="preloader">
+
+      
+      <div
+        class="preloader-grid"
+        aria-hidden="true"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+
+      <!-- Corner details -->
+      <div
+        class="preloader-corner preloader-corner-tl"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="preloader-corner preloader-corner-tr"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="preloader-corner preloader-corner-bl"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="preloader-corner preloader-corner-br"
+        aria-hidden="true"
+      ></div>
+
+
+      <!-- Top -->
+      <div class="preloader-top">
+
+        <div class="preloader-brand">
+          <span class="preloader-dot"></span>
+
+          <span>
+            HASAN AHMED
+          </span>
+        </div>
+
+
+
+      </div>
+
+
+      <!-- Center -->
+      <div class="preloader-center">
+
+        <div
+          class="preloader-orbit"
+          aria-hidden="true"
+        ></div>
+
+        <div
+          class="preloader-orbit preloader-orbit-two"
+          aria-hidden="true"
+        ></div>
+
+
+        <!-- H -->
+        <svg
+          class="preloader-svg"
+          viewBox="0 0 56 61"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+
+          <use
+            href="#logo-path"
+            class="preloader-ghost"
+            opacity="0.3"
+          ></use>
+
+          <use
+            href="#logo-path"
+            class="preloader-fill"
+          ></use>
+
+        </svg>
+
+
+        <!-- Line -->
+        <div
+          class="preloader-line"
+          aria-hidden="true"
+        ></div>
+
+
+        <!-- Label -->
+        <div class="preloader-label">
+          CREATIVE DEVELOPER
+        </div>
+
+      </div>
+
+
+      <!-- Bottom -->
+      <div class="preloader-bottom">
+
+        <div class="preloader-bottom-left">
+        </div>
+
+        <div class="preloader-bottom-right">
+         
+
+          <span
+            class="preloader-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+   <script
+   type="module"
+   src="./src/main.jsx"
+  >
+</script>
+
+  </body>
+</html>

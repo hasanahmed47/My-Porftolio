@@ -1,0 +1,118 @@
+.project-dropcoffee {
+  --color-text-400: rgb(255, 255, 255);
+  --color-text-300: rgb(195, 204, 219);
+
+  --color-accent-400: #af5f13;
+  --color-accent-text-400: white;
+
+  --color-hover: #795004;
+
+  --color-grayscale-500: #945a09;
+  --color-grayscale-400: #8d5104;
+
+  --color-background-300: #492b03;
+  --color-background-400: #1f1201;
+}
+
+.project-atmosx {
+  --color-text-400: rgb(239, 243, 247);
+  --color-text-300: rgb(72, 85, 97);
+
+  --color-accent-400: rgb(6, 53, 110);
+  --color-accent-text-400: rgb(255, 255, 255);
+
+  --color-hover: rgb(20, 29, 37);
+
+  --color-grayscale-500: rgb(2, 37, 61);
+  --color-grayscale-400: rgb(40, 149, 231);
+
+  --color-background-400: rgb(1, 62, 109);
+  --color-background-300: rgb(2, 17, 58);
+}
+
+.project-maintainiq {
+  --color-text-400: white;
+  --color-text-300: rgb(149, 155, 150);
+
+  --color-accent-400: #22904b;
+  --color-accent-text-400: white;
+
+  --color-hover: #000000;
+
+  --color-grayscale-500: #2c2f2c;
+  --color-grayscale-400: #2c2f2c;
+
+  --color-background-400: #191c19;
+  --color-background-300: #141614;
+}
+
+.project-pokedex {
+  --color-text-400: #0c1b3a;
+  --color-text-300: rgb(105, 111, 116);
+
+  --color-hover: #011030;
+  --color-hover-text: #ffffff;
+
+  --color-accent-400: #ff5350;
+  --color-accent-text-400: white;
+
+  --color-grayscale-500: #d9dde7;
+  --color-grayscale-400: #d9dde7;
+
+  --color-background-400: #e9edf6;
+  --color-background-300: #f9fbfe;
+}
+
+.project-sharkie {
+  --color-text-400: #ffffff;
+  --color-text-300: #c6d2f2;
+
+  --color-hover: #00173f;
+  --color-hover-text: #ffffff;
+
+  --color-accent-400: #176cfe;
+  --color-accent-text-400: white;
+
+  --color-grayscale-500: #364f94;
+  --color-grayscale-400: #263e82;
+
+  --color-background-400: #263e82;
+  --color-background-300: rgb(22, 41, 94);
+}
+
+
+/*
+ * ─── HTML-level background override ─────────────────────────────────────────
+ *
+ * Applied via data-project attribute stamped on <html> by useProjectTransition
+ * at the very first frame of a transition (useLayoutEffect, before paint).
+ *
+ * z-index of html = 0, which is BELOW the curtain (z-index 47) so the curtain
+ * animation is completely unaffected. But when the curtain finishes lifting,
+ * the correct dark/blue color is already behind everything — no white flash.
+ *
+ * White-background projects (atmosx, pokedex) included for completeness;
+ * their white-on-white is invisible and causes no regression.
+ * ────────────────────────────────────────────────────────────────────────────
+ */
+html[data-project="dropcoffee"] {
+  background-color: #1c2f4f;
+}
+
+html[data-project="atmosx"] {
+  background-color: white;
+}
+
+html[data-project="maintainiq"] {
+  background-color: #141614;
+}
+
+html[data-project="pokedex"] {
+  background-color: #f9fbfe;
+}
+
+html[data-project="sharkie"] {
+  background-color: rgb(22, 41, 94);
+}
+
+

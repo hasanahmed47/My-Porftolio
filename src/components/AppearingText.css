@@ -1,0 +1,20 @@
+.appearing-text {
+  position: relative;
+
+  display: inline-block;
+}
+
+.appearing-text-value {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  white-space: nowrap;
+}
+
+.appearing-text-clone {
+  visibility: hidden;
+
+  white-space: nowrap;
+}

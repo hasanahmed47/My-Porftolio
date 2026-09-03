@@ -1,0 +1,245 @@
+.hero {
+  max-height:
+    calc(var(--lvh) * 100);
+
+  height:
+    calc(var(--lvh) * 100);
+
+  width: 100%;
+
+  display: flex;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.hero-content {
+  align-items: center;
+
+  justify-content: center;
+
+  height: 46%;
+}
+
+.hero-content-inner {
+  transform-origin:
+    center center;
+
+  grid-column:
+    1 / 13;
+
+  gap:
+    var(--space-xxl);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: fit-content;
+
+  position: relative;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+}
+
+.hero-content-copys {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-sm);
+}
+
+
+/* ==========================================
+   TITLE
+========================================== */
+
+.hero-title {
+  margin: 0;
+
+  font-weight: 900;
+
+  letter-spacing: 0.02em;
+
+  font-size:
+    var(--font-size-title-lg);
+}
+
+
+/* ==========================================
+   WEB DEVELOPER BANNER
+========================================== */
+
+.hero-banner {
+  position: absolute;
+
+  bottom: 0;
+
+  right: -16px;
+
+  z-index: 10;
+
+  transform:
+    rotate(-5deg)
+    translate(0, 65%);
+}
+
+@media (min-width: 480px) {
+  .hero-banner {
+    right: -24px;
+
+    transform:
+      rotate(-5deg)
+      translate(0, 70%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-banner {
+    right: -32px;
+
+    transform:
+      rotate(-5deg)
+      translate(0, 80%);
+  }
+}
+
+/* ==========================================
+   MD
+========================================== */
+
+@media (min-width: 840px) {
+  .hero-content-copys {
+    gap:
+      var(--space-md);
+  }
+}
+
+
+/* ==========================================
+   LANDSCAPE
+========================================== */
+
+@media (orientation: landscape) {
+  .hero-content {
+    height: 100%;
+  }
+
+  .hero-content-inner {
+    left: 0;
+
+    transform:
+      translateX(0);
+
+    grid-column:
+      2 / 13;
+
+    width: fit-content;
+  }
+
+  .hero-title {
+    font-size:
+      var(--font-size-title-lg);
+  }
+}
+
+
+/* ==========================================
+   LANDSCAPE + MD
+========================================== */
+
+@media (orientation: landscape) and
+  (min-width: 840px) {
+
+  .hero-content {
+    padding-bottom: 30%;
+  }
+}
+
+
+/* ==========================================
+   LANDSCAPE + LG
+========================================== */
+
+@media (orientation: landscape) and
+  (min-width: 1024px) {
+
+  .hero-content {
+    padding-bottom: 5%;
+  }
+}
+
+
+/* ==========================================
+   LANDSCAPE LARGE + SM
+========================================== */
+
+@media (orientation: landscape) and
+  (min-height: 480px) and
+  (min-width: 480px) {
+
+  .hero-title {
+    font-size:
+      var(--font-size-title-xl);
+  }
+}
+
+
+/* ==========================================
+   LANDSCAPE LARGE + XL
+========================================== */
+
+@media (orientation: landscape) and
+  (min-height: 480px) and
+  (min-width: 1280px) {
+
+  .hero-title {
+    font-size:
+      var(--font-size-title-xxl);
+  }
+}
+
+
+/* ==========================================
+   BANNER + SM
+========================================== */
+
+@media (min-width: 480px) {
+  .hero-banner {
+    right: -24px;
+
+    transform:
+      rotate(-5deg)
+      translate(0, 70%);
+  }
+}
+
+
+/* ==========================================
+   BANNER + LG
+========================================== */
+
+@media (min-width: 1024px) {
+  .hero-banner {
+    right: -32px;
+
+    transform:
+      rotate(-5deg)
+      translate(0, 80%);
+  }
+}

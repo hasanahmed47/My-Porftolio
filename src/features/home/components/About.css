@@ -1,0 +1,91 @@
+.about-content {
+  position: absolute;
+
+  color:
+    var(--color-text-cyan-400);
+
+  font-family:
+    "ProFontWindows";
+
+  top: 0;
+
+  width: 100%;
+
+  padding:
+    var(--space-outer);
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  height:
+    calc(var(--lvh) * 100);
+
+  --count-height:
+    calc(
+      max(
+        calc(
+          (var(--lvh) - var(--svh))
+          * 100
+        ),
+        36px
+      )
+      + var(--space-outer)
+    );
+}
+
+
+.about-details,
+.about-description,
+.about-services {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  will-change:
+    transform,
+    opacity;
+
+  height: 100%;
+
+  width: 100%;
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+}
+
+
+.about-progress-count {
+  will-change:
+    transform,
+    opacity;
+
+  position: absolute;
+
+  bottom: 0;
+  left: var(--space-outer);
+
+  width:
+    calc(
+      100% -
+      var(--space-outer) * 2
+    );
+}
+
+
+@media (orientation: landscape) {
+  .about-details,
+  .about-description,
+  .about-services {
+    width: 100%;
+
+    height: 0;
+
+    top: 50%;
+  }
+}

@@ -1,0 +1,38 @@
+.text {
+  line-height:
+    var(--line-height-copy);
+
+  grid-column:
+    1 / 13;
+}
+
+.text-with-title {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-md);
+}
+
+.text-title {
+  font-size:
+    var(--font-size-title-sm);
+
+  line-height:
+    var(--line-height-title);
+}
+
+@media (min-width: 840px) {
+  .text {
+    grid-column:
+      3 / 11;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text {
+    grid-column:
+      4 / 10;
+  }
+}

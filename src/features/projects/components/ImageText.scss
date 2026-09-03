@@ -1,0 +1,72 @@
+.imageText {
+  &-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1;
+    grid-column: 1 / 13;
+
+    &-content {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+
+      &-border {
+        border: var(--stroke-md) solid var(--color-grayscale-400);
+      }
+    }
+
+    &-left {
+      @include mixins.mq("md") {
+        grid-column: 1 / 7;
+      }
+
+      @include mixins.mq("lg") {
+        grid-column: 2 / 7;
+      }
+    }
+
+    &-right {
+      @include mixins.mq("md") {
+        grid-column: 7 / 13;
+      }
+
+      @include mixins.mq("lg") {
+        grid-column: 7 / 12;
+      }
+    }
+  }
+
+  &-content {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    grid-row: 2;
+    grid-column: 1 / 13;
+
+    &-left {
+      @include mixins.mq("md") {
+        grid-column: 1 / 7;
+      }
+
+      @include mixins.mq("lg") {
+        grid-column: 2 / 7;
+      }
+    }
+
+    &-right {
+      @include mixins.mq("md") {
+        grid-column: 7 / 13;
+      }
+
+      @include mixins.mq("lg") {
+        grid-column: 7 / 11;
+      }
+    }
+
+    @include mixins.mq("md") {
+      grid-row: 1;
+    }
+  }
+}

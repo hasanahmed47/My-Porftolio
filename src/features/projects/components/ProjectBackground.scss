@@ -1,0 +1,117 @@
+.project-background {
+  position: fixed;
+
+  top:
+    calc(
+      var(--radius-xxl) * -1
+    );
+
+  left: 0;
+
+  height:
+    calc(
+      100% +
+      var(--radius-xxl)
+    );
+
+  width: 100%;
+
+  background-color:
+    var(--color-background-300);
+
+  z-index:
+    calc(
+      var(--z-index-project-background) - 3
+    );
+
+  pointer-events: none;
+
+  transition:
+    transform
+      var(--transition-route-duration)
+      var(--transition-route-ease);
+
+  visibility: hidden;
+
+  transform:
+    translate3d(
+      0,
+      100%,
+      0
+    );
+
+  border-radius:
+    var(--radius-xxl)
+    var(--radius-xxl)
+    0
+    0;
+
+  &-blend {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index:
+      calc(
+        var(--z-index-project-background) - 4
+      );
+
+    background-color:
+      rgb(21, 34, 66);
+
+    transition:
+      opacity
+        var(--transition-route-duration);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    visibility: hidden;
+
+    &-visible {
+      opacity: 0.5;
+    }
+
+    &-transitioning {
+      visibility: visible;
+    }
+  }
+
+  &-visible {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+
+    /*
+     * The shared --transition-route-ease
+     * has a slow, held start (barely any
+     * movement for the first ~150-200ms
+     * of a 500ms transition) before it
+     * rushes to finish. That reads as a
+     * static/frozen screen on entry.
+     *
+     * Overriding just the entering
+     * direction with ease-out makes the
+     * curtain move from the very first
+     * frame after click. The exit
+     * transition (falls back to the
+     * base rule above) is untouched.
+     */
+    transition:
+      transform
+        var(--transition-route-duration)
+        ease-out;
+  }
+
+  &-transitioning {
+    visibility: visible;
+  }
+}

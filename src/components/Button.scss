@@ -1,0 +1,30 @@
+.button {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  &-size {
+    &-sm {
+      height: 38px;
+
+      padding:
+        0 16px;
+    }
+
+    &-md {
+      height: 44px;
+
+      padding:
+        0 26px;
+    }
+
+    &-lg {
+      height: 50px;
+
+      padding:
+        0 34px;
+    }
+  }
+}
