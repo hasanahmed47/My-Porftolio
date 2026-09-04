@@ -254,13 +254,8 @@ function tick() {
     return;
   }
 
-
-  if (
-    !isTouchDevice()
-  ) {
-    contactTick();
-    roomTick();
-  }
+  contactTick();
+  roomTick();
 
 
   const currentVolume =
@@ -412,11 +407,7 @@ export function useHowler() {
     );
 
 
-    if (
-      !isTouchDevice()
-    ) {
-      loadAllSounds();
-    }
+    loadAllSounds();
 
 
     emit();

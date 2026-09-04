@@ -123,11 +123,7 @@ const tick = /* @__PURE__ */ __name(() => {
   uniforms.uProgress.value = aboutProgress.value * 1.1 - 0.1;
   uniforms.uAmbientStrength.value = sceneWeightsInOut.about.in;
   if (!mesh) return;
-  if (uniforms.uProgress.value > 0.999 && sceneWeights.contact > 0.99) {
-    mesh.visible = false;
-  } else {
-    mesh.visible = true;
-  }
+  mesh.visible = true;
 }, "tick");
 const destroy = /* @__PURE__ */ __name(() => {
   face.destroy();
