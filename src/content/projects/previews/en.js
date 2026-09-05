@@ -3,7 +3,7 @@ import thumbnailAtmosx from "../../../assets/thumbnails/atmosx.webp";
 import thumbnailMaintainiq from "../../../assets/thumbnails/maintainiq.webp";
 import thumbnailPokedex from "../../../assets/thumbnails/pokedex.webp";
 import thumbnailSharkie from "../../../assets/thumbnails/sharkie.webp";
-var stdin_default = [
+var project = [
   {
     title: "DROP",
     slug: "dropcoffee",
@@ -35,6 +35,5 @@ var stdin_default = [
     description: "Open-source learning project"
   }
 ];
-export {
-  stdin_default as default
-};
+
+export default project;

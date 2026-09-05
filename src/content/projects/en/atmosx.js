@@ -10,7 +10,7 @@ var stdin_default = {
   tags: ["react", "javascript", "framer-motion", "Next-js"],
   live: "https://atmosx-js.vercel.app/",
   videoBorder: false,
-  description: "An experimental WebGL project built with OGL.js, animating particles through mathematical formulas and noise functions.<br/><br/>The particles transition smoothly between multiple 3D shapes that blend into one another.",
+  description: "AtmosX started because I got tired of weather apps that just throw numbers at you like a temperature, a percentage, done. Never really told you how the day feels.<br/><br/>So I built something that reacts to the weather itself panels that shift with rain, clouds, snow, or sun, temperature rendered in soft gradients, forecasts laid out hour by hour.<br/>",
   components: [
     {
       type: "media",
