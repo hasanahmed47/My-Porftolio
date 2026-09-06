@@ -59,7 +59,8 @@ function createLenis() {
 }
 
 export function useScroll(
-  isTransitioning = false
+  isTransitioning = false,
+  isProjectActive = false
 ) {
   useEffect(() => {
     const instance =
@@ -141,7 +142,8 @@ export function useScroll(
     }
 
     if (
-      isTransitioning
+      isTransitioning ||
+      isProjectActive
     ) {
       instance.stop();
 
@@ -152,9 +154,10 @@ export function useScroll(
 
     instance.start();
 
-    ScrollTrigger.update();
+    ScrollTrigger.refresh();
   }, [
     isTransitioning,
+    isProjectActive,
   ]);
 }
 

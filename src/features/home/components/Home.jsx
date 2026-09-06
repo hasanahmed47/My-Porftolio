@@ -276,6 +276,15 @@ function Home({
   ]);
 
   useEffect(() => {
+    if (!currentTransitioning) {
+      updateContactBottomOffset();
+    }
+  }, [
+    currentTransitioning,
+    updateContactBottomOffset,
+  ]);
+
+  useEffect(() => {
     if (
       !projectsLoaded ||
       !threeInitializedRef.current ||

@@ -74,7 +74,8 @@ function App() {
     !isTransitioning;
 
   useScroll(
-    isTransitioning
+    isTransitioning,
+    projectId !== null
   );
 
   /*
