@@ -141,10 +141,7 @@ export function useScroll(
       return;
     }
 
-    if (
-      isTransitioning ||
-      isProjectActive
-    ) {
+    if (isTransitioning) {
       instance.stop();
 
       ScrollTrigger.clearScrollMemory();
