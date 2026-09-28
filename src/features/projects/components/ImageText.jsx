@@ -47,7 +47,6 @@ function ImageText({
         <img
           src={src}
           alt={alt ?? ""}
-          loading="lazy"
           fetchPriority="high"
           className={[
             "imageText-image-content",

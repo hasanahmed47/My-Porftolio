@@ -126,8 +126,6 @@ function Media({
             ref={mediaRef}
             src={src}
             alt={alt ?? ""}
-            loading="lazy"
-            fetchPriority="high"
             className="
               project-media-image
             "
@@ -140,7 +138,7 @@ function Media({
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             className="
               project-media-video
             "
