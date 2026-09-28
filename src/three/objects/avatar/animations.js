@@ -129,6 +129,7 @@ const wave = /* @__PURE__ */ __name(() => {
 }, "wave");
 const wakeUp = /* @__PURE__ */ __name(() => {
   if (isAwake) return;
+  if (window.location.pathname.includes('/project/')) return;
   isAwake = true;
   const sleepingAction = actions.get("sleeping");
   const wakeUpAction = actions.get("wake-up");
