@@ -39,7 +39,7 @@ function Hero({
             <h1 className="hero-title">
               HASAN
               <br />
-              Ahmed
+              AHMED
             </h1>
 
 

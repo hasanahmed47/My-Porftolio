@@ -21,7 +21,12 @@ import {
 
 import {
   animations,
+  transitions,
 } from "../../../animations";
+
+import {
+  animations as avatarAnimations,
+} from "../../../three/objects/avatar/animations";
 
 import {
   raycast,
@@ -283,6 +288,33 @@ function Home({
     currentTransitioning,
     updateContactBottomOffset,
   ]);
+
+  // When the user returns from a project page:
+  // 1. The wakeUp ScrollTrigger was spent while they scrolled
+  //    inside the project (scroll is shared, URL guard blocked wakeUp
+  //    but the one-shot trigger is consumed and will never fire again).
+  // 2. We need to: reset sleeping state, reset isAwake flag, and
+  //    rebuild the contact ScrollTriggers so wakeUp fires correctly
+  //    the next time the user scrolls into the contact section.
+  // We watch projectId (not projectVisible) so we act only when the
+  // full exit is done and the scroll has been restored by useLayoutEffect.
+  const prevProjectIdRef = useRef(currentProjectId);
+  useEffect(() => {
+    const wasOnProject = prevProjectIdRef.current !== null;
+    prevProjectIdRef.current = currentProjectId;
+
+    // Only handle the project → home transition
+    if (wasOnProject && currentProjectId === null && contactRef.current) {
+      // rAF ensures the browser has processed the restored scroll
+      // position before we build the new ScrollTrigger, so GSAP
+      // evaluates it against the real scroll, not stale values.
+      requestAnimationFrame(() => {
+        avatarAnimations.resetContactState();
+        transitions.contact.destroy();
+        transitions.contact.setup(contactRef.current);
+      });
+    }
+  }, [currentProjectId]);
 
   useEffect(() => {
     if (

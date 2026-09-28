@@ -127,6 +127,21 @@ const wave = /* @__PURE__ */ __name(() => {
   tl.fromTo(wavingStrength, { value: 1 }, { value: 0 }, waveDuration - 0.2);
   return tl;
 }, "wave");
+const resetAwake = /* @__PURE__ */ __name(() => {
+  isAwake = false;
+}, "resetAwake");
+const resetContactState = /* @__PURE__ */ __name(() => {
+  isAwake = false;
+  const sleepingAction = actions.get("sleeping");
+  const wakeUpAction = actions.get("wake-up");
+  const contactIdleAction = actions.get("contact-idle");
+  if (wakeUpAction) wakeUpAction.stop();
+  if (contactIdleAction) contactIdleAction.stop();
+  if (sleepingAction) {
+    sleepingAction.reset();
+    sleepingAction.play();
+  }
+}, "resetContactState");
 const wakeUp = /* @__PURE__ */ __name(() => {
   if (isAwake) return;
   if (window.location.pathname.includes('/project/')) return;
@@ -167,7 +182,7 @@ const update = /* @__PURE__ */ __name(() => {
   mixer.update(delta / 60);
   hologramMixer.update(delta / 60);
 }, "update");
-const animations = { init, play, actions, update, wakeUp, getIsAwake: /* @__PURE__ */ __name(() => isAwake, "getIsAwake"), wave };
+const animations = { init, play, actions, update, wakeUp, resetAwake, resetContactState, getIsAwake: /* @__PURE__ */ __name(() => isAwake, "getIsAwake"), wave };
 export {
   animations
 };
